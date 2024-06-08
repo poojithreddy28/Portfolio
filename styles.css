@@ -1,6 +1,6 @@
 /* THEME */
 :root {
-    --purple: #7E74F1;
+    --purple: #b3afdb;
     --purple-light-1: #EAE6FE;
     --purple-light-2: #F5F3FE;
     --cinder: #232E35;
@@ -527,7 +527,7 @@ input[type='text']::placeholder, input[type='email']::placeholder,::placeholder 
     transform: rotate(353deg);
 }
 .hero-section .image .avatar {
-    position: relative;
+    position:fixed;
     left: 0;
     top: 103px;
     border-bottom-left-radius: 16px;
@@ -1316,17 +1316,16 @@ input[type='text']::placeholder, input[type='email']::placeholder,::placeholder 
     .hero-section .content .about {
         margin: 0 32px 40px 0; /* Adjusted for smaller screens */
     }
+  
     .hero-section .image {
-        max-width: 100%; /* Full width on smaller screens */
-        height: auto;
+        max-width: 272px;
+        height: 350px;
+        left: 16px;
     }
-    .hero-section .image .cover,
-    .hero-section .image .avatar {
-        max-width: 100%; /* Full width on smaller screens */
-        height: auto;
-    }
-    .hero-section .image .avatar {
-        top: 0; /* Adjusted for smaller screens */
+    .hero-section .image .cover {
+        max-width: 272px;
+        height: 350px;
+        right: 0;
     }
     /* WORK EXPERIENCES */
     .experience-section .side {
@@ -1400,10 +1399,6 @@ input[type='text']::placeholder, input[type='email']::placeholder,::placeholder 
         max-width: 272px;
         height: 350px;
         right: 0;
-    }
-    .hero-section .image .avatar {
-        top: 104px;
-        width: 213px;
     }
     /* SERVICES */
     .service-section {
@@ -1632,5 +1627,17 @@ input[type='text']::placeholder, input[type='email']::placeholder,::placeholder 
     .portfolio-section .portfolio-item-wrapper {
         margin-top: 80px;
     }
+    
+    .hero-section .image {
+        max-width: 272px;
+        height: 350px;
+        left: 16px;
+    }
+    .hero-section .image .cover {
+        max-width: 272px;
+        height: 350px;
+        right: 0;
+    }
 }
+
 
