@@ -1,13 +1,14 @@
 name: Deploy to S3
-
 on:
   push:
     branches:
-      - main  # or master, depending on your default branch
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      AWS_REGION: us-east-1
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -17,7 +18,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-region: ${{ env.AWS_REGION }}
       
       - name: Deploy to S3
         run: |
@@ -27,10 +28,3 @@ jobs:
             --exclude ".github/*" \
             --exclude "README.md" \
             --exclude ".gitignore"
-          
-    #   - name: Invalidate CloudFront cache (if using CloudFront)
-    #     if: false  # Set to true if you're using CloudFront
-    #     run: |
-    #       aws cloudfront create-invalidation \
-    #         --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-    #         --paths "/*"
